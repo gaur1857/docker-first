@@ -1,28 +1,35 @@
-# this is the name of workflow that will displayed in the action tab
+# this is the name of workflow that will be displayed in the action tab
 name: CICD
 
+# manual trigger workflow
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
 
-  Code:
+  code:
     runs-on: ubuntu-latest
     steps:
-      -name: checkout code
-       run: echo "Code Clone from Github"
- build:
-   step:
-     -name: Build Docker container
-      run: echo "Docker container build"
-     
- test: 
-   steps:
-     -name: test the container
-      run: echo "testing the containter"
-      
- deploy: 
-   steps: 
-     -name: deploying the app
-      run: echo "Docker compose deployed the app"
-      
+      - name: Checkout code
+        run: echo "Code Clone from Github"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: code
+    steps:
+      - name: Build Docker container
+        run: echo "Docker container build"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Test the container
+        run: echo "Testing the container"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Deploying the app
+        run: echo "Docker compose deployed the app"
