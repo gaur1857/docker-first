@@ -4,6 +4,17 @@ name: CICD
 # manual trigger workflow
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: this is the enviroment value where the workflows runs
+        default: 'dev'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+          - staging
+          
 
 jobs:
   # every job needs separate runner, it's called Parallelism  
