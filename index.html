@@ -1,78 +1,176 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { CreditCard, ShieldCheck, Smartphone } from "lucide-react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Bank</title>
 
-export default function HappyBank() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white text-gray-800">
-      {/* Navbar */}
-      <div className="flex justify-between items-center p-6 shadow-md bg-white">
-        <div className="flex items-center gap-2">
-          <div className="bg-blue-600 text-white px-3 py-1 rounded-xl font-bold">
-            HB
-          </div>
-          <h1 className="text-xl font-semibold">Happy Bank</h1>
-        </div>
-        <div className="flex gap-4">
-          <Button variant="outline">Login</Button>
-          <Button>Open Account</Button>
-        </div>
-      </div>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-      {/* Hero Section */}
-      <div className="text-center py-20 px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-4"
-        >
-          Welcome to Happy Bank
-        </motion.h2>
-        <p className="text-gray-600 mb-6">
-          Modern banking for a smarter future. Secure, fast and easy.
-        </p>
-        <Button size="lg">Get Started</Button>
-      </div>
-
-      {/* Features */}
-      <div className="grid md:grid-cols-3 gap-6 px-6 pb-16">
-        <Card className="rounded-2xl shadow-lg">
-          <CardContent className="p-6 text-center">
-            <CreditCard className="mx-auto mb-4" size={40} />
-            <h3 className="font-semibold text-lg">Digital Payments</h3>
-            <p className="text-sm text-gray-500">
-              Pay instantly with cards and UPI.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-2xl shadow-lg">
-          <CardContent className="p-6 text-center">
-            <ShieldCheck className="mx-auto mb-4" size={40} />
-            <h3 className="font-semibold text-lg">Secure Banking</h3>
-            <p className="text-sm text-gray-500">
-              Advanced security and encryption.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-2xl shadow-lg">
-          <CardContent className="p-6 text-center">
-            <Smartphone className="mx-auto mb-4" size={40} />
-            <h3 className="font-semibold text-lg">Mobile App</h3>
-            <p className="text-sm text-gray-500">
-              Bank anytime, anywhere.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Footer */}
-      <div className="bg-blue-600 text-white text-center p-6">
-        <p>© 2026 Happy Bank. All rights reserved.</p>
-      </div>
-    </div>
-  );
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
+body {
+  background: #f5f7fb;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.logo span {
+  background: #2563eb;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  margin-right: 8px;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  height: 90vh;
+  background: url('https://source.unsplash.com/1600x900/?bank,finance') no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 50px;
+}
+
+.hero p {
+  margin: 15px 0;
+}
+
+.btn {
+  padding: 12px 25px;
+  background: #2563eb;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  padding: 50px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+/* Services Section */
+.services {
+  padding: 50px;
+  background: #2563eb;
+  color: white;
+  text-align: center;
+}
+
+/* Contact */
+.contact {
+  padding: 50px;
+  text-align: center;
+}
+
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo"><span>HB</span> Happy Bank</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div>
+    <h1>Welcome to Happy Bank</h1>
+    <p>Secure, Fast & Modern Banking Experience</p>
+    <button class="btn">Open Account</button>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+  <div class="card">
+    <h3>💳 Digital Payments</h3>
+    <p>UPI, Cards & Instant Transfers</p>
+  </div>
+
+  <div class="card">
+    <h3>🔒 Secure Banking</h3>
+    <p>Advanced encryption & protection</p>
+  </div>
+
+  <div class="card">
+    <h3>📱 Mobile Banking</h3>
+    <p>Access anytime anywhere</p>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services">
+  <h2>Our Services</h2>
+  <p>Loans, Credit Cards, Savings Accounts & More</p>
+</section>
+
+<!-- Contact -->
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p>Email: support@happybank.com</p>
+</section>
+
+<footer>
+  <p>© 2026 Happy Bank. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
